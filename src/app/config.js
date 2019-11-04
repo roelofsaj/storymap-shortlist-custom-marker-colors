@@ -29,7 +29,7 @@ app.cfg = {
 	//
 	BOOKMARKS: false,
 	BOOKMARKS_ALIAS: "Zoom",
-	COLOR_ORDER: "green,red,blue,purple,black,brown,orange,yellow",
+	COLOR_ORDER: "purple,red,green,blue,black,brown,orange,yellow",
 
 	COLOR_SCHEMES: [
 			{name:"blue",color:"#425dac"},

@@ -603,6 +603,7 @@ define(["lib-build/css!./MainView",
 				var name = false;
 				var pic = false;
 				var featureNumber = null;
+				console.log("buildThemes");
 				$.each(fields, function(index, field){
 					if(field.name.toLowerCase() == 'name')
 						name = true;
@@ -751,12 +752,18 @@ define(["lib-build/css!./MainView",
 
 				if(themes.length == 1 && !app.isInBuilder)
 					$(".entries").css("display", "none");
+				console.log({themes});
 
 				$.each(themes, function(index, theme){
+
+					$.each(theme.features.sort(SortByNumber), function(j, feature) {
+						_this.buildLayer([feature], feature.attributes.color_id);
+					});
+					/*
 					_this.buildLayer(
 						theme.features,
 						theme.color
-					);
+					);*/
 					app.ui.mobileIntro.fillList(index, theme, themes);
 					var oneTheme = false;
 					if(themes.length == 1){
@@ -1049,10 +1056,14 @@ define(["lib-build/css!./MainView",
 						})[0];
 						var color = theme.color || colorScheme.color;
 
-						_this.buildLayer(
+						console.log('Line 1060 buildLayer');
+						/*_this.buildLayer(
 							theme.features.sort(SortByNumber),
 							color
-						);
+						);*/
+						$.each(theme.features.sort(SortByNumber), function(j, feature) {
+							_this.buildLayer([feature], feature.attributes.color_id);
+						});
 
 						if(app.isInBuilder){
 							app.data.setStory(index, theme.title, colorScheme.color, theme.extent);
@@ -1105,10 +1116,15 @@ define(["lib-build/css!./MainView",
 						})[0];
 						var color = theme.color || colorScheme.color;
 
+						//console.log('Line 1117 buildLayer');
+						$.each(theme.features.sort(SortByNumber), function(j, feature) {
+							_this.buildLayer([feature], feature.attributes.color_id);
+						});
+						/*
 						_this.buildLayer(
 							theme.features.sort(SortByNumber),
 							color
-						);
+						);*/
 
 						if(app.isInBuilder){
 							app.data.setStory(index, theme.title, colorScheme.color);
@@ -1533,6 +1549,8 @@ define(["lib-build/css!./MainView",
 				newContext.font = newCanvas.width/3.8 + "pt pt open_sanssemibold, sans-serif";
 				newContext.drawImage(_myCanvas, 0, 0);
 				var newIconColor = color;
+				console.log({coloredIcon});
+				console.log({color});
 
 				// examine every pixel,
 				// change any old rgb to the new-rgb
