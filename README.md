@@ -111,3 +111,5 @@ precautions still apply. Back near the top of the JSON, there will be as section
 For full help information on the storymap short list, see the [parent Esri github repo](https://github.com/Esri/storymap-shortlist).
 For more infomation about using and customizing Esri's Storytelling Apps follow the [Story Maps Developers' Corner](https://developerscorner.storymaps.arcgis.com).
 
+#### References
+[This geonet post](https://community.esri.com/thread/208896-default-map-locations) was very helpful.
